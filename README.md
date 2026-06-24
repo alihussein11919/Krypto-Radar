@@ -1,4 +1,4 @@
-# Krypto-Radar: # Crypto Lakehouse Pipeline
+# Krypto-Radar: Crypto Lakehouse Pipeline
 
 A modern end-to-end data engineering project that ingests historical and real-time cryptocurrency market data, processes it using the Medallion Architecture, and transforms it into an analytics-ready dimensional data warehouse.
 
