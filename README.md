@@ -157,6 +157,18 @@ The Gold layer contains
 - Business metrics
 - Aggregated datasets
 
+
+## How we arrive at the dimensional model for gold
+The gold layer answers business questions. The shape of your schema follows from the questions you want to ask. For a crypto pipeline the natural questions are:
+
+What was the daily OHLCV for each coin over time?
+
+How does a coin's price correlate with its market cap rank?
+
+Which exchange had the most volume on a given day?
+
+How did Bitcoin dominance change over the past year?
+
 ---
 
 # Dimensional Modeling
