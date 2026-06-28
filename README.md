@@ -125,6 +125,13 @@ Typical transformations include
 
 Silver provides the foundation for downstream analytics.
 
+
+How we arrive at the silver transformations
+The question to ask at silver is: what does this data need to be before it's useful to analysts? Three things drive every decision:
+First, type correctness — bronze stores price as a string because Binance sends it that way. Silver casts it to double. Bronze timestamps are milliseconds since epoch. Silver converts them to proper timestamps. These aren't business decisions, they're correctness decisions.
+Second, deduplication and null handling — raw data has duplicates from overlapping fetches and nulls from API quirks. Silver removes them. A downstream analyst should never have to think about this.
+Third, join enrichment — a trade record only has symbol = "BTCUSDT". Silver joins it to the coins table so downstream queries can filter by name = "Bitcoin" or category = "layer1" without knowing the symbol mapping.
+For the CoinGecko silver job specifically, the transformations are: cast price/volume to proper numerics, compute daily_return = (price_today - price_yesterday) / price_yesterday, join market_chart to markets on coin_id to bring in name, symbol, market_cap_rank, and category. Nothing fancier than that — silver is not the place for complex business logic.
 ---
 
 ## Gold Layer
