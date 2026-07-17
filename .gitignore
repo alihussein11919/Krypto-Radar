@@ -1,0 +1,24 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Data (large/generated)
+data/raw/
+data/jars/
+data/parquet/
+data/trino/
+data/minio/
+data/checkpoint/
+data/failed/
+data/warehouse/
+notebooks/
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp

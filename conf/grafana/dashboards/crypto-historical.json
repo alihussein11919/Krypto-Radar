@@ -1,0 +1,280 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 100,
+      "title": "Market Overview",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }] } },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 1 },
+      "id": 1,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Coins Tracked",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT COUNT(*) AS \"Coins Tracked\" FROM hive.gold.dim_coins", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "blue", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 1 },
+      "id": 2,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "BTC Price",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT price_usd AS \"BTC Price\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'bitcoin' ORDER BY date DESC LIMIT 1", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "blue", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 1 },
+      "id": 3,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "ETH Price",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT price_usd AS \"ETH Price\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'ethereum' ORDER BY date DESC LIMIT 1", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "blue", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 1 },
+      "id": 4,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "SOL Price",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT price_usd AS \"SOL Price\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'solana' ORDER BY date DESC LIMIT 1", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "orange", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 1 },
+      "id": 5,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "BTC All-Time High",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT MAX(price_usd) AS \"BTC ATH\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'bitcoin'", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "purple", "value": null }] } },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 1 },
+      "id": 6,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Data Since",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(MIN(date) AS VARCHAR) AS \"From\" FROM hive.gold.fact_daily_prices", "refId": "A" }]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 5 },
+      "id": 101,
+      "title": "Price Charts",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 10, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "showPoints": "auto", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 6 },
+      "id": 10,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Bitcoin Daily Price",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(date AS TIMESTAMP) AS time, price_usd AS \"Bitcoin\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'bitcoin' ORDER BY date", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 10, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "showPoints": "auto", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 6 },
+      "id": 11,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Ethereum Daily Price",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(date AS TIMESTAMP) AS time, price_usd AS \"Ethereum\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'ethereum' ORDER BY date", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 10, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "showPoints": "never", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 16 },
+      "id": 12,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "right" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Multi-Coin Price Comparison",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(f.date AS TIMESTAMP) AS time, f.price_usd AS \"Bitcoin\", f2.price_usd AS \"Ethereum\", f3.price_usd AS \"Solana\", f4.price_usd AS \"XRP\", f5.price_usd AS \"BNB\" FROM hive.gold.fact_daily_prices f LEFT JOIN hive.gold.fact_daily_prices f2 ON f.date = f2.date AND f2.coin_id = 'ethereum' LEFT JOIN hive.gold.fact_daily_prices f3 ON f.date = f3.date AND f3.coin_id = 'solana' LEFT JOIN hive.gold.fact_daily_prices f4 ON f.date = f4.date AND f4.coin_id = 'ripple' LEFT JOIN hive.gold.fact_daily_prices f5 ON f.date = f5.date AND f5.coin_id = 'binancecoin' WHERE f.coin_id = 'bitcoin' ORDER BY f.date", "refId": "A" }]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 26 },
+      "id": 102,
+      "title": "Volume",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "bars", "fillOpacity": 80, "gradientMode": "scheme", "lineWidth": 0, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 27 },
+      "id": 20,
+      "options": { "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "single", "sort": "none" } },
+      "title": "Average Daily Volume by Coin",
+      "type": "barchart",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT c.name AS metric, AVG(f.volume_usd) AS \"Avg Daily Volume\" FROM hive.gold.fact_daily_prices f JOIN hive.gold.dim_coins c ON f.coin_id = c.coin_id WHERE c.coin_id IN ('bitcoin', 'ethereum', 'solana', 'ripple', 'binancecoin') GROUP BY c.name ORDER BY 2 DESC", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 20, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 1, "showPoints": "never", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 27 },
+      "id": 21,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Volume Trend Comparison",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(f.date AS TIMESTAMP) AS time, f.volume_usd AS \"Bitcoin\", f2.volume_usd AS \"Ethereum\", f3.volume_usd AS \"Solana\" FROM hive.gold.fact_daily_prices f LEFT JOIN hive.gold.fact_daily_prices f2 ON f.date = f2.date AND f2.coin_id = 'ethereum' LEFT JOIN hive.gold.fact_daily_prices f3 ON f.date = f3.date AND f3.coin_id = 'solana' WHERE f.coin_id = 'bitcoin' ORDER BY f.date", "refId": "A" }]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 37 },
+      "id": 103,
+      "title": "Returns & Market Cap",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 15, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 1, "showPoints": "never", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 38 },
+      "id": 30,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Daily Return %",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(f.date AS TIMESTAMP) AS time, f.daily_return AS \"Bitcoin\", f2.daily_return AS \"Ethereum\", f3.daily_return AS \"Solana\" FROM hive.gold.fact_daily_prices f LEFT JOIN hive.gold.fact_daily_prices f2 ON f.date = f2.date AND f2.coin_id = 'ethereum' LEFT JOIN hive.gold.fact_daily_prices f3 ON f.date = f3.date AND f3.coin_id = 'solana' WHERE f.coin_id = 'bitcoin' ORDER BY f.date", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 10, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 2, "showPoints": "never", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 38 },
+      "id": 31,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "BTC Market Cap",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(date AS TIMESTAMP) AS time, market_cap_usd AS \"BTC Market Cap\" FROM hive.gold.fact_daily_prices WHERE coin_id = 'bitcoin' ORDER BY date", "refId": "A" }]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 48 },
+      "id": 104,
+      "title": "Reference Data",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "custom": { "align": "auto", "cellOptions": { "type": "auto" }, "inspect": false } },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 49 },
+      "id": 40,
+      "options": { "cellHeight": "sm", "footer": { "countRows": false, "fields": "", "reducer": ["sum"], "show": false }, "showHeader": true, "sortBy": [{ "desc": false, "displayName": "market_cap_rank" }] },
+      "title": "Coin Reference Data",
+      "type": "table",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT coin_id, name, symbol, market_cap_rank FROM hive.gold.dim_coins ORDER BY market_cap_rank", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "custom": { "align": "auto", "cellOptions": { "type": "auto" }, "inspect": false } },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 49 },
+      "id": 41,
+      "options": { "cellHeight": "sm", "footer": { "countRows": false, "fields": "", "reducer": ["sum"], "show": false }, "showHeader": true, "sortBy": [{ "desc": true, "displayName": "date" }] },
+      "title": "BTC Daily Prices (Last 30 Days)",
+      "type": "table",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT f.date, c.name, f.price_usd, f.volume_usd, f.market_cap_usd, f.daily_return FROM hive.gold.fact_daily_prices f JOIN hive.gold.dim_coins c ON f.coin_id = c.coin_id WHERE f.coin_id = 'bitcoin' AND f.date >= CURRENT_DATE - INTERVAL '30' DAY ORDER BY f.date DESC", "refId": "A" }]
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": ["crypto", "historical"],
+  "templating": { "list": [] },
+  "time": { "from": "now-90d", "to": "now" },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Crypto Historical Analysis",
+  "uid": "crypto-historical",
+  "version": 1,
+  "weekStart": ""
+}

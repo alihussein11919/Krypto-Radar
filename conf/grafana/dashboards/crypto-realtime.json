@@ -1,0 +1,205 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 100,
+      "title": "Latest Prices",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "orange", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 1 },
+      "id": 1,
+      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "BTC/USDT",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT close AS \"Price\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 1", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "blue", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 1 },
+      "id": 2,
+      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "ETH/USDT",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT close AS \"Price\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'ETHUSDT' ORDER BY window_end DESC LIMIT 1", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "purple", "value": null }] }, "unit": "currencyUSD" },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 6, "x": 12, "y": 1 },
+      "id": 3,
+      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "SOL/USDT",
+      "type": "stat",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT close AS \"Price\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'SOLUSDT' ORDER BY window_end DESC LIMIT 1", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }] } },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 1 },
+      "id": 4,
+      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "All Symbols",
+      "type": "table",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT symbol, close AS \"Last Price\", volume AS \"Last Volume\", window_end AS \"Last Updated\" FROM hive.gold.fact_ohlcv_1m WHERE (symbol, window_end) IN (SELECT symbol, MAX(window_end) FROM hive.gold.fact_ohlcv_1m GROUP BY symbol) ORDER BY symbol", "refId": "A" }]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 5 },
+      "id": 101,
+      "title": "BTC/USDT 1-Minute",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 10, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 0, "showPoints": "never", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 16, "x": 0, "y": 6 },
+      "id": 10,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "BTC Price (1-Min Close)",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, close AS \"BTC Price\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "bars", "fillOpacity": 80, "gradientMode": "scheme", "lineWidth": 0, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 8, "x": 16, "y": 6 },
+      "id": 11,
+      "options": { "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "single", "sort": "none" } },
+      "title": "BTC Trade Count",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, trade_count AS \"Trades\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "bars", "fillOpacity": 80, "gradientMode": "scheme", "lineWidth": 0, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 16 },
+      "id": 12,
+      "options": { "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "single", "sort": "none" } },
+      "title": "BTC Volume (1-Min)",
+      "type": "timeseries",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, volume AS \"Volume\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "A" }]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": { "custom": { "align": "auto", "cellOptions": { "type": "auto" }, "inspect": false } },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 26 },
+      "id": 13,
+      "options": { "cellHeight": "sm", "footer": { "countRows": false, "fields": "", "reducer": ["sum"], "show": false }, "showHeader": true, "sortBy": [{ "desc": true, "displayName": "window_start" }] },
+      "title": "BTC 1-Min OHLCV (Last 50)",
+      "type": "table",
+      "targets": [{ "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT window_start, window_end, open, high, low, close, volume, trade_count FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 50", "refId": "A" }]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 36 },
+      "id": 102,
+      "title": "All Symbols Comparison",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "line", "fillOpacity": 10, "gradientMode": "scheme", "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 0, "showPoints": "never", "spanNulls": false, "stacking": { "group": "A", "mode": "none" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 37 },
+      "id": 20,
+      "options": { "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "right" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Multi-Symbol Price (1-Min Close)",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, close AS \"BTC\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "A" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, close AS \"ETH\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'ETHUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "B" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, close AS \"SOL\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'SOLUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "C" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, close AS \"XRP\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'XRPUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "D" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, close AS \"BNB\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BNBUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "E" }
+      ]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "drawStyle": "bars", "fillOpacity": 80, "gradientMode": "scheme", "lineWidth": 0, "stacking": { "group": "A", "mode": "normal" }, "thresholdsStyle": { "mode": "off" } },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 47 },
+      "id": 21,
+      "options": { "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi", "sort": "desc" } },
+      "title": "Multi-Symbol Volume (Stacked)",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, volume AS \"BTC\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BTCUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "A" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, volume AS \"ETH\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'ETHUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "B" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, volume AS \"SOL\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'SOLUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "C" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, volume AS \"XRP\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'XRPUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "D" },
+        { "datasource": { "type": "trino-datasource", "uid": "PD73EC80E50767796" }, "rawSql": "SELECT CAST(window_end AS TIMESTAMP) AS time, volume AS \"BNB\" FROM hive.gold.fact_ohlcv_1m WHERE symbol = 'BNBUSDT' ORDER BY window_end DESC LIMIT 200", "refId": "E" }
+      ]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": ["crypto", "realtime"],
+  "templating": { "list": [] },
+  "time": { "from": "now-1h", "to": "now" },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Crypto Real-Time Monitoring",
+  "uid": "crypto-realtime",
+  "version": 1,
+  "weekStart": ""
+}

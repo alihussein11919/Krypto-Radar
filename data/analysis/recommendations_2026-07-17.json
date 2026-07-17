@@ -1,0 +1,122 @@
+[
+  {
+    "coin_id": "binancecoin",
+    "symbol": "BNB",
+    "name": "BNB",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "The RSI is at a relatively low level (36.3), indicating potential oversold conditions. However, the MACD histogram is still negative (-2.3084), suggesting that the trend may not be reversing yet. The volume ratio is close to 1x, which could indicate a lack of strong buying or selling pressure. Given these factors and considering similar historical patterns, there isn't enough evidence to strongly recommend a buy or sell signal.",
+    "risk_level": "LOW",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:21:25.198601+00:00"
+  },
+  {
+    "coin_id": "bitcoin",
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "action": "BUY",
+    "confidence": 80,
+    "reasoning": "The bullish signal from the MACD and RSI indicators, combined with a volume ratio above 1x, suggests a potential upward trend. Pattern 1 shows a similar setup in the past, resulting in a +0.54% daily return. However, it's essential to note that the current price is -3.5% vs SMA20, indicating some caution. A moderate risk level and short-term timeframe are recommended.",
+    "risk_level": "MEDIUM",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:22:40.001187+00:00"
+  },
+  {
+    "coin_id": "ethereum",
+    "symbol": "ETH",
+    "name": "Ethereum",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "The current RSI(14) is at 35.2, which is relatively low, indicating a potential buy opportunity. However, the MACD signal is neutral, and the daily return is only +0.91%. The similar historical patterns show mixed results, with some bullish signals (Pattern 2 and Pattern 5) but also some bearish signals. Given the lack of clear confirmation, it's best to hold for now.",
+    "risk_level": "LOW",
+    "timeframe": "medium-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:23:50.490056+00:00"
+  },
+  {
+    "coin_id": "figure-heloc",
+    "symbol": "FIGR_HELOC",
+    "name": "Figure Heloc",
+    "action": "HOLD",
+    "confidence": 70,
+    "reasoning": "FIGR_HELOC is currently trading near its SMA20 and SMA50, indicating a possible consolidation phase. The RSI(14) is slightly oversold but not in overbought territory, which could suggest a potential buying opportunity. However, the lack of strong bullish signals from MACD and the bearish patterns from similar historical data (Patterns 3 and 4) keep me cautious. Further analysis is required to confirm a trend reversal.",
+    "risk_level": "LOW",
+    "timeframe": "medium-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:25:50.660646+00:00"
+  },
+  {
+    "coin_id": "hyperliquid",
+    "symbol": "HYPE",
+    "name": "Hyperliquid",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "The RSI is slightly oversold, but the MACD histogram is negative, indicating a potential bearish trend. However, the daily return is positive and the volume ratio is within normal limits. This pattern bears some resemblance to 'near' patterns from historical data, which often result in small price movements. Given the neutral signal and moderate confidence level, holding for now seems like a reasonable approach.",
+    "risk_level": "MEDIUM",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:27:25.743736+00:00"
+  },
+  {
+    "coin_id": "ripple",
+    "symbol": "XRP",
+    "name": "XRP",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "The RSI is at a relatively low level (34.7) which may indicate oversold conditions. However, the MACD histogram is negative and the signal line is still neutral, suggesting no clear bullish or bearish momentum. The volume ratio is close to 1, indicating normal trading activity. Given the similarities with historical patterns that didn't result in significant price movements, it's difficult to make a strong recommendation.",
+    "risk_level": "LOW",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:29:19.722168+00:00"
+  },
+  {
+    "coin_id": "solana",
+    "symbol": "SOL",
+    "name": "Solana",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "The current RSI is relatively low at 41.0, indicating a potential oversold condition. However, the MACD histogram is positive and the signal line is neutral, suggesting a possible bullish divergence. The volume ratio is above average, but not extremely high, which could indicate a lack of strong momentum. Considering the similar historical patterns, none of them show a clear buy or sell signal, making it difficult to make an accurate prediction. Therefore, holding the current position and waiting for further confirmation is recommended.",
+    "risk_level": "LOW",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:30:37.410605+00:00"
+  },
+  {
+    "coin_id": "tether",
+    "symbol": "USDT",
+    "name": "Tether",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "Current RSI is below 50, indicating a potential oversold condition. However, the bearish signal from MACD and Bollinger bands' position suggests caution. The volume ratio is within normal limits, but not matching historical patterns. Given the uncertainty and lack of strong signals, holding for now seems prudent.",
+    "risk_level": "LOW",
+    "timeframe": "medium-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:31:49.132510+00:00"
+  },
+  {
+    "coin_id": "tron",
+    "symbol": "TRX",
+    "name": "TRON",
+    "action": "HOLD",
+    "confidence": 60,
+    "reasoning": "TRX is currently in a neutral state with RSI at 47.7 and MACD histogram at +0.0020. Although it has shown a daily return of +0.10%, the signal remains NEUTRAL, indicating no strong buy or sell signals. The similarity to historical patterns, such as Pattern 1 and Pattern 2, suggests that TRX may be experiencing a consolidation phase rather than a clear trend. Therefore, holding the current position is recommended.",
+    "risk_level": "LOW",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:33:08.993374+00:00"
+  },
+  {
+    "coin_id": "usd-coin",
+    "symbol": "USDC",
+    "name": "USDC",
+    "action": "SELL",
+    "confidence": 70,
+    "reasoning": "The bearish signal from the MACD and RSI indicates a potential downtrend. The similarity to Pattern 3 (usdt on 2026-07-17) suggests that USDC may follow a similar path, with a lower volume ratio indicating increased selling pressure. While the daily return is -0.00%, the bearish signal outweighs the lack of price movement.",
+    "risk_level": "MEDIUM",
+    "timeframe": "short-term",
+    "similar_patterns": 5,
+    "generated_at": "2026-07-17T16:34:31.900171+00:00"
+  }
+]

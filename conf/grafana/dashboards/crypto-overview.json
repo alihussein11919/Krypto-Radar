@@ -1,0 +1,367 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 10,
+      "title": "Market Overview",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": { "type": "auto" },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 80 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 1 },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": { "countRows": false, "fields": "", "reducer": ["sum"], "show": false },
+        "showHeader": true,
+        "sortBy": [{ "desc": false, "displayName": "market_cap_rank" }]
+      },
+      "title": "All Coins",
+      "type": "table",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  coin_id,\n  name,\n  symbol,\n  market_cap_rank\nFROM dim_coins\nORDER BY market_cap_rank\nLIMIT 50\n",
+          "format": "table",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 9 },
+      "id": 11,
+      "title": "Price Charts",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Price (USD)",
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "scheme",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 10 },
+      "id": 2,
+      "options": {
+        "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "title": "Bitcoin Price",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  CAST(date AS TIMESTAMP) AS time,\n  price_usd AS \"BTC\"\nFROM fact_daily_prices\nWHERE coin_id = 'bitcoin'\nORDER BY date\n",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Price (USD)",
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "scheme",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 10 },
+      "id": 3,
+      "options": {
+        "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "title": "Ethereum Price",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  CAST(date AS TIMESTAMP) AS time,\n  price_usd AS \"ETH\"\nFROM fact_daily_prices\nWHERE coin_id = 'ethereum'\nORDER BY date\n",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Price (USD)",
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "scheme",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 20 },
+      "id": 4,
+      "options": {
+        "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "right" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "title": "Multi-Coin Price Comparison",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  CAST(f.date AS TIMESTAMP) AS time,\n  f.price_usd AS \"Bitcoin\",\n  f2.price_usd AS \"Ethereum\",\n  f3.price_usd AS \"Solana\"\nFROM fact_daily_prices f\nLEFT JOIN fact_daily_prices f2 ON f.date = f2.date AND f2.coin_id = 'ethereum'\nLEFT JOIN fact_daily_prices f3 ON f.date = f3.date AND f3.coin_id = 'solana'\nWHERE f.coin_id = 'bitcoin'\nORDER BY f.date\n",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 30 },
+      "id": 12,
+      "title": "Volume & Market Data",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Avg Daily Volume (USD)",
+            "drawStyle": "bars",
+            "fillOpacity": 80,
+            "gradientMode": "scheme",
+            "lineWidth": 0,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 31 },
+      "id": 5,
+      "options": {
+        "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "title": "Average Daily Volume by Coin",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  c.name AS metric,\n  AVG(f.volume_usd) AS \"Avg Volume\"\nFROM fact_daily_prices f\nJOIN dim_coins c ON f.coin_id = c.coin_id\nWHERE c.coin_id IN ('bitcoin', 'ethereum', 'solana', 'ripple', 'binancecoin')\nGROUP BY c.name\n",
+          "format": "table",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Market Cap (USD)",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "scheme",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 31 },
+      "id": 6,
+      "options": {
+        "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "title": "Daily Market Cap",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  CAST(f.date AS TIMESTAMP) AS time,\n  f.market_cap_usd AS \"Bitcoin\"\nFROM fact_daily_prices f\nWHERE f.coin_id = 'bitcoin'\nORDER BY f.date\n",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 41 },
+      "id": 13,
+      "title": "1-Minute OHLCV",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Price (USD)",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "stepAfter",
+            "lineWidth": 1,
+            "pointSize": 0,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 42 },
+      "id": 7,
+      "options": {
+        "legend": { "calcs": ["lastNotNull"], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "title": "BTC 1-Minute Candles",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  CAST(window_end AS TIMESTAMP) AS time,\n  open AS \"Open\",\n  high AS \"High\",\n  low AS \"Low\",\n  close AS \"Close\"\nFROM fact_ohlcv_1m\nWHERE symbol = 'BTCUSDT'\nORDER BY window_end DESC\nLIMIT 200\n",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "trino-datasource", "uid": "" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "Volume",
+            "drawStyle": "bars",
+            "fillOpacity": 80,
+            "gradientMode": "scheme",
+            "lineWidth": 0,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 52 },
+      "id": 8,
+      "options": {
+        "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "title": "BTC 1-Minute Volume",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "trino-datasource", "uid": "" },
+          "rawSql": "SELECT\n  CAST(window_end AS TIMESTAMP) AS time,\n  volume AS \"Volume\"\nFROM fact_ohlcv_1m\nWHERE symbol = 'BTCUSDT'\nORDER BY window_end DESC\nLIMIT 200\n",
+          "format": "time_series",
+          "refId": "A"
+        }
+      ]
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": ["crypto", "trino"],
+  "templating": { "list": [] },
+  "time": { "from": "now-30d", "to": "now" },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Crypto Lakehouse Dashboard",
+  "uid": "crypto-lakehouse",
+  "version": 1,
+  "weekStart": ""
+}

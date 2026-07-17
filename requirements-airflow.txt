@@ -1,0 +1,12 @@
+apache-airflow==2.10.5
+python-dotenv==1.2.2
+loguru==0.7.3
+requests==2.34.2
+pandas==3.0.3
+pyarrow==24.0.0
+websockets==15.0.1
+boto3==1.40.0
+trino==0.334.0
+chromadb-client==1.5.9
+ollama==0.4.0
+numpy==2.4.6
