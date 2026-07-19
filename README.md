@@ -32,7 +32,7 @@ A complete crypto data lakehouse with automated pipeline orchestration and an AI
                     └───────────────────┘
 ```
 
-<img width="14773" height="4842" alt="image" src="https://github.com/user-attachments/assets/41494fa1-7618-44a7-ac7d-c089a6f8d018" />
+<img width="3652" height="4047" alt="image" src="https://github.com/user-attachments/assets/872f423a-6e15-4c6c-9f30-25d88385c51f" />
 
 
 ## Tech Stack
