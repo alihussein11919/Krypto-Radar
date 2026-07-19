@@ -32,6 +32,9 @@ A complete crypto data lakehouse with automated pipeline orchestration and an AI
                     └───────────────────┘
 ```
 
+<img width="14773" height="4842" alt="image" src="https://github.com/user-attachments/assets/41494fa1-7618-44a7-ac7d-c089a6f8d018" />
+
+
 ## Tech Stack
 
 | Layer | Technology |
