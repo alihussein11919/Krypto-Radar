@@ -35,6 +35,10 @@ A complete crypto data lakehouse with automated pipeline orchestration and an AI
 <img width="3652" height="4047" alt="image" src="https://github.com/user-attachments/assets/872f423a-6e15-4c6c-9f30-25d88385c51f" />
 
 
+## Staging Data in bronze Layer
+<img width="4620" height="2446" alt="Crypto staging (bronze layer(" src="https://github.com/user-attachments/assets/44f43822-ea0b-4f3b-9e4c-6876d1395189" />
+
+
 ## Tech Stack
 
 | Layer | Technology |
