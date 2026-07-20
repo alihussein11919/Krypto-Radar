@@ -32,7 +32,7 @@ A complete crypto data lakehouse with automated pipeline orchestration and an AI
                     └───────────────────┘
 ```
 
-<img width="3652" height="4047" alt="image" src="https://github.com/user-attachments/assets/872f423a-6e15-4c6c-9f30-25d88385c51f" />
+<img width="1408" height="768" alt="Gemini_Generated_Image_8brbyb8brbyb8brb" src="https://github.com/user-attachments/assets/0d678d38-a5ad-4345-80c9-50abd84deb32" />
 
 
 ## Staging Data in bronze Layer
