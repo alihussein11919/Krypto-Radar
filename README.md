@@ -3,7 +3,7 @@
 A complete crypto data lakehouse with automated pipeline orchestration and an AI-powered RAG (Retrieval-Augmented Generation) recommendation system for buy/sell/hold signals.
 
 ## Architecture
-<img width="1408" height="768" alt="Gemini_Generated_Image_8brbyb8brbyb8brb" src="https://github.com/user-attachments/assets/0d678d38-a5ad-4345-80c9-50abd84deb32" />
+<img width="184" height="148" alt="image" src="https://github.com/user-attachments/assets/5ab8ad99-1922-47e7-840b-d2c32c6e1af3" />
 
 
 ## Staging Data in bronze Layer
