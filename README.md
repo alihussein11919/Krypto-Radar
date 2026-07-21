@@ -3,7 +3,7 @@
 A complete crypto data lakehouse with automated pipeline orchestration and an AI-powered RAG (Retrieval-Augmented Generation) recommendation system for buy/sell/hold signals.
 
 ## Architecture
-<img width="184" height="148" alt="image" src="https://github.com/user-attachments/assets/5ab8ad99-1922-47e7-840b-d2c32c6e1af3" />
+<img width="1024" height="558" alt="image" src="https://github.com/user-attachments/assets/168f9b84-8551-42dc-a9bb-87b2a0140929" />
 
 
 ## Staging Data in bronze Layer
